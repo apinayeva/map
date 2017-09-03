@@ -2,8 +2,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
@@ -35,6 +34,8 @@ public class Test {
 
         String imagePath = "C:/Users/apinayeva/Downloads/test.png";
         File file = new File(imagePath);
+
+
         BufferedImage image = ImageIO.read(file);
         final int[] count = {0};
         // Picture
@@ -45,8 +46,6 @@ public class Test {
                 Point location = MouseInfo.getPointerInfo().getLocation();
                 String x = String.valueOf(location.getX());
                 String y = String.valueOf(location.getY());
-
-
                 switch (count[0]) {
                     case 0:
                         xValueField1.setText(x);
@@ -106,88 +105,3 @@ public class Test {
         f.setVisible(true);
     }
 }
-
-
-//import java.awt.*;
-//import java.awt.event.*;
-//import javax.swing.*;
-//
-//public class Test
-//{
-//    public static void main(String[] args)
-//    {
-//        final WindowListener wl = new WindowAdapter()
-//        {
-//            public void windowDeactivated(WindowEvent e)
-//            {
-////                e.getWindow().setVisible(false);
-//                Point location = MouseInfo.getPointerInfo().getLocation();
-//                double x = location.getX();
-//                double y = location.getY();
-//                System.out.println("x: " + x);
-//                System.out.println("y: " + y);
-//            }
-//        };
-//
-//        Point location = MouseInfo.getPointerInfo().getLocation();
-//        double x = location.getX();
-//        double y = location.getY();
-//        System.out.println("x: " + x);
-//        System.out.println("y: " + y);
-//
-//
-//        JButton button = new JButton("Show Popup");
-//        button.addActionListener(new ActionListener()
-//        {
-//            public void actionPerformed(ActionEvent e)
-//            {
-//                JButton button = (JButton)e.getSource();
-//                JFrame frame = (JFrame) SwingUtilities.windowForComponent(button);
-//
-//                JDialog dialog = new JDialog(frame, false);
-//                dialog.setUndecorated(true);
-//                dialog.add( new JButton("Dummy Button") );
-//                dialog.pack();
-//                dialog.setLocationRelativeTo( frame );
-//                dialog.setVisible( true );
-//                dialog.addWindowListener( wl );
-//            }
-//        });
-//
-//        JFrame frame = new JFrame();
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.add(button, BorderLayout.NORTH);
-//        frame.setSize(400, 400);
-//        frame.setLocationRelativeTo( null );
-//        frame.setVisible( true );
-//    }
-//}
-//
-////public class Test extends JFrame
-////{
-////    public void paint(Graphics g)
-////    {
-////        super.paint(g);
-////        g.drawLine(0, 0, 100, 100);
-////    }
-////
-////    public static void main(String[] args) {new Test();}
-////
-////    public Test()
-////    {
-////        super("Test");
-////        JFrame.setDefaultLookAndFeelDecorated(true);
-////        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-////        pack();
-////        setSize(800, 600);
-////        setVisible(true);
-////
-////        Point location = MouseInfo.getPointerInfo().getLocation();
-////        double x = location.getX();
-////        double y = location.getY();
-////
-////        System.out.println("x: " + x);
-////        System.out.println("y: " + y);
-////
-////    }
-////}
